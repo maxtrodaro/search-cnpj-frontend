@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
@@ -9,8 +9,6 @@ import { RegisterPage } from "./style";
 import api from "../../services/requestAPI";
 
 export default function RegisterStore() {
-	const [inputError, setInputError] = useState(false);
-
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
@@ -63,9 +61,7 @@ export default function RegisterStore() {
 									name="name"
 									placeholder="Nome:"
 									type="text"
-									className={`register-container__form__left__name ${
-										inputError ? "error" : ""
-									}`}
+									className={`register-container__form__left__name`}
 								/>
 								<p className="register-container__form__left__userIcon"></p>
 							</div>
@@ -75,9 +71,7 @@ export default function RegisterStore() {
 									name="cnpj"
 									placeholder="CNPJ:"
 									type="text"
-									className={`register-container__form__left__cnpj ${
-										inputError ? "error" : ""
-									}`}
+									className={`register-container__form__left__cnpj`}
 								/>
 								<p className="register-container__form__left__cnpjIcon"></p>
 							</div>
@@ -87,9 +81,7 @@ export default function RegisterStore() {
 									name="cod_emp"
 									placeholder="Código da empresa:"
 									type="text"
-									className={`register-container__form__left__cod ${
-										inputError ? "error" : ""
-									}`}
+									className={`register-container__form__left__cod`}
 								/>
 								<p className="register-container__form__left__codIcon"></p>
 							</div>
@@ -104,9 +96,7 @@ export default function RegisterStore() {
 									name="serv_ip"
 									placeholder="Endereço do servidor:"
 									type="text"
-									className={`register-container__form__right__serv ${
-										inputError ? "error" : ""
-									}`}
+									className={`register-container__form__right__serv`}
 								/>
 								<p className="register-container__form__right__servIcon"></p>
 							</div>
@@ -115,12 +105,7 @@ export default function RegisterStore() {
 							<RegisterButton onClick={() => history.push("/home")}>
 								Voltar
 							</RegisterButton>
-							<RegisterButton
-								type="submit"
-								onClick={() => setInputError(!inputError)}
-							>
-								Cadastrar loja
-							</RegisterButton>
+							<RegisterButton type="submit">Cadastrar loja</RegisterButton>
 						</div>
 					</Form>
 				</Formik>

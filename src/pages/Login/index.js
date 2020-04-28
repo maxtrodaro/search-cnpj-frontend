@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 /**
  * Documentation url: https://feathericons.com/
@@ -15,8 +15,6 @@ import logoLinx from "../../assets/logo-linx.svg";
 import { Button } from "../../util/Style/global";
 
 export default function Login() {
-	const [inputError, setInputError] = useState(false);
-
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
@@ -71,9 +69,7 @@ export default function Login() {
 								name="username"
 								placeholder="Usuário:"
 								type="text"
-								className={`login-container__form__input ${
-									inputError ? "error" : ""
-								}`}
+								className={`login-container__form__input`}
 							/>
 							<p className="login-container__form__user"></p>
 						</div>
@@ -91,9 +87,7 @@ export default function Login() {
 							/>
 							<p className="login-container__form__password"></p>
 						</div>
-						<Button type="submit" onClick={() => setInputError(!inputError)}>
-							Entrar
-						</Button>
+						<Button type="submit">Entrar</Button>
 						<Link className="login-container__form__link" to="/profile">
 							<FiLogIn
 								size={16}
@@ -104,11 +98,7 @@ export default function Login() {
 						</Link>
 					</Form>
 				</Formik>
-				<p
-					className={`login-container__message ${
-						inputError ? "e-active" : "e-none"
-					}`}
-				>
+				<p className={`login-container__message e-none`}>
 					Usuário inválido. Tente novamente
 				</p>
 			</div>

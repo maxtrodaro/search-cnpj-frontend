@@ -48,16 +48,15 @@ export default function SearchStore() {
 		loadServer();
 	}, []);
 
-	function handleFilter(event) {
+	async function handleFilter(event) {
 		event.preventDefault();
 
-		filterByCnpj(cnpj)
-			.then(([store]) => {
-				setFilteredStore(store);
-			})
-			.catch(() => {
-				setFilteredStore(null);
-			});
+		try {
+			const store = await filterByCnpj(cnpj);
+			setFilteredStore(store);
+		} catch (error) {
+			setFilteredStore(null);
+		}
 	}
 
 	const handleChangeCnpj = (e) => {

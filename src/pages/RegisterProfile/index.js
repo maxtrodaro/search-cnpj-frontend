@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { ErrorMessage, Formik, Form, Field } from "formik";
@@ -11,8 +11,6 @@ import { ProfilePage } from "./style";
 import api from "../../services/requestAPI";
 
 export default function Register() {
-	const [inputError, setInputError] = useState(false);
-
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
@@ -56,9 +54,7 @@ export default function Register() {
 								name="name"
 								placeholder="Digite seu nome completo"
 								type="text"
-								className={`register-container__form__input ${
-									inputError ? "error" : ""
-								}`}
+								className={`register-container__form__input`}
 							/>
 							<p className="register-container__form__name"></p>
 						</div>
@@ -72,9 +68,7 @@ export default function Register() {
 								name="username"
 								placeholder="Digite seu usuário"
 								type="text"
-								className={`register-container__form__input ${
-									inputError ? "error" : ""
-								}`}
+								className={`register-container__form__input`}
 							/>
 							<p className="register-container__form__user"></p>
 						</div>
@@ -88,15 +82,11 @@ export default function Register() {
 								name="password"
 								placeholder="Digite sua senha"
 								type="password"
-								className={`register-container__form__input ${
-									inputError ? "error" : ""
-								}`}
+								className={`register-container__form__input`}
 							/>
 							<p className="register-container__form__pass"></p>
 						</div>
-						<Button type="submit" onClick={() => setInputError(!inputError)}>
-							Finalizar Cadastro
-						</Button>
+						<Button type="submit">Finalizar Cadastro</Button>
 						<Link className="register-container__form__link" to="/">
 							<FiArrowLeftCircle
 								size={16}
@@ -109,11 +99,7 @@ export default function Register() {
 				</Formik>
 				<img src={logoLinx} alt="Logo Linx" />
 			</div>
-			<p
-				className={`register-container__message ${
-					inputError ? "e-active" : "e-none"
-				}`}
-			>
+			<p className={`register-container__message e-none`}>
 				Cadastro inválido. Tente novamente
 			</p>
 		</ProfilePage>
