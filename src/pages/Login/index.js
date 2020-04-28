@@ -24,8 +24,9 @@ export default function Login() {
 			const response = await api.post("/authenticate", values);
 
 			const token = response.data.token;
-			sessionStorage.setItem("username", response.data.user[0].username);
-			sessionStorage.setItem("name", response.data.user[0].name);
+
+			sessionStorage.setItem("username", response.data.user.username);
+			sessionStorage.setItem("name", response.data.user.name);
 
 			try {
 				await api.get("/token", {
