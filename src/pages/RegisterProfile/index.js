@@ -35,67 +35,80 @@ export default function Register() {
 			.required("Senha obrigatória"),
 	});
 
+	const initialValues = {
+		username: "",
+		password: "",
+	};
+
 	return (
 		<ProfilePage>
 			<div className="register-container">
 				<Formik
-					initialValues={{}}
+					initialValues={initialValues}
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>
-					<Form className="register-container__form">
-						<div className="register-container__form__group">
-							<ErrorMessage
-								name="name"
-								component="span"
-								className="register-container__form__error"
-							/>
-							<Field
-								name="name"
-								placeholder="Digite seu nome completo"
-								type="text"
-								className={`register-container__form__input`}
-							/>
-							<p className="register-container__form__name"></p>
-						</div>
-						<div className="register-container__form__group">
-							<ErrorMessage
-								name="username"
-								component="span"
-								className="register-container__form__error"
-							/>
-							<Field
-								name="username"
-								placeholder="Digite seu usuário"
-								type="text"
-								className={`register-container__form__input`}
-							/>
-							<p className="register-container__form__user"></p>
-						</div>
-						<div className="register-container__form__group">
-							<ErrorMessage
-								name="password"
-								component="span"
-								className="register-container__form__error"
-							/>
-							<Field
-								name="password"
-								placeholder="Digite sua senha"
-								type="password"
-								className={`register-container__form__input`}
-							/>
-							<p className="register-container__form__pass"></p>
-						</div>
-						<Button type="submit">Finalizar Cadastro</Button>
-						<Link className="register-container__form__link" to="/">
-							<FiArrowLeftCircle
-								size={16}
-								color="#696969"
-								style={{ marginRight: "10px" }}
-							/>
-							Voltar para o login
-						</Link>
-					</Form>
+					{({ dirty, isValid }) => {
+						const submitIsValid = !dirty || !isValid;
+
+						return (
+							<Form className="register-container__form">
+								<div className="register-container__form__group">
+									<ErrorMessage
+										name="name"
+										component="span"
+										className="register-container__form__error"
+									/>
+									<Field
+										name="name"
+										placeholder="Digite seu nome completo"
+										type="text"
+										className={`register-container__form__input`}
+									/>
+									<p className="register-container__form__name"></p>
+								</div>
+								<div className="register-container__form__group">
+									<ErrorMessage
+										name="username"
+										component="span"
+										className="register-container__form__error"
+									/>
+									<Field
+										name="username"
+										placeholder="Digite seu usuário"
+										type="text"
+										className={`register-container__form__input`}
+									/>
+									<p className="register-container__form__user"></p>
+								</div>
+								<div className="register-container__form__group">
+									<ErrorMessage
+										name="password"
+										component="span"
+										className="register-container__form__error"
+									/>
+									<Field
+										name="password"
+										placeholder="Digite sua senha"
+										type="password"
+										className={`register-container__form__input`}
+									/>
+									<p className="register-container__form__pass"></p>
+								</div>
+								<Button type="submit" disabled={submitIsValid}>
+									Finalizar Cadastro
+								</Button>
+								<Link className="register-container__form__link" to="/">
+									<FiArrowLeftCircle
+										size={16}
+										color="#696969"
+										style={{ marginRight: "10px" }}
+									/>
+									Voltar para o login
+								</Link>
+							</Form>
+						);
+					}}
 				</Formik>
 				<img src={logoLinx} alt="Logo Linx" />
 			</div>

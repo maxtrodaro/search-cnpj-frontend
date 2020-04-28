@@ -34,10 +34,10 @@ export default function Login() {
 				});
 				history.push("/home");
 			} catch (error) {
-				throw new Error(error);
+				throw new Error("Senha inválida!");
 			}
 		} catch (error) {
-			throw new Error(error);
+			throw new Error(alert("Senha inválida"));
 		}
 	};
 
@@ -49,54 +49,69 @@ export default function Login() {
 			.required("Senha obrigatória"),
 	});
 
+	const initialValues = {
+		username: "",
+		password: "",
+	};
+
 	return (
 		<LoginPage>
 			<div className="login-container">
 				<img src={logoLinx} alt="Linx" />
 				<Formik
-					initialValues={{}}
+					initialValues={initialValues}
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>
-					<Form className="login-container__form">
-						<div className="login-container__form__group">
-							<ErrorMessage
-								component="span"
-								name="username"
-								className="login-container__form__error"
-							/>
-							<Field
-								name="username"
-								placeholder="Usuário:"
-								type="text"
-								className={`login-container__form__input`}
-							/>
-							<p className="login-container__form__user"></p>
-						</div>
-						<div className="login-container__form__group">
-							<ErrorMessage
-								component="span"
-								name="password"
-								className="login-container__form__error"
-							/>
-							<Field
-								name="password"
-								placeholder="Senha:"
-								type="password"
-								className="login-container__form__input"
-							/>
-							<p className="login-container__form__password"></p>
-						</div>
-						<Button type="submit">Entrar</Button>
-						<Link className="login-container__form__link" to="/profile">
-							<FiLogIn
-								size={16}
-								color="#696969"
-								style={{ marginRight: "5px" }}
-							/>
-							Não tenho cadastro
-						</Link>
-					</Form>
+					{({ dirty, isValid }) => {
+						const submitIsDisabled = !dirty || !isValid;
+
+						return (
+							<Form className="login-container__form">
+								<div className="login-container__form__group">
+									<ErrorMessage
+										component="span"
+										name="username"
+										className="login-container__form__error"
+									/>
+									<Field
+										name="username"
+										placeholder="Usuário:"
+										type="text"
+										autocomplete="off"
+										className={`login-container__form__input`}
+									/>
+									<p className="login-container__form__user"></p>
+								</div>
+								<div className="login-container__form__group">
+									<ErrorMessage
+										component="span"
+										name="password"
+										className="login-container__form__error"
+									/>
+									<Field
+										name="password"
+										placeholder="Senha:"
+										type="password"
+										autocomplete="off"
+										className="login-container__form__input"
+									/>
+									<p className="login-container__form__password"></p>
+								</div>
+								<Button type="submit" disabled={submitIsDisabled}>
+									Entrar
+								</Button>
+								<Link className="login-container__form__link" to="/profile">
+									<FiLogIn
+										size={16}
+										color="#696969"
+										style={{ marginRight: "5px" }}
+									/>
+									Não tenho cadastro
+								</Link>
+							</Form>
+						);
+					}}
 				</Formik>
 				<p className={`login-container__message e-none`}>
 					Usuário inválido. Tente novamente

@@ -12,21 +12,21 @@ export const Input = styled.input`
 
 export const Button = styled.button`
 	height: 60px;
-	background: #e0e0e0;
 	border: 0;
 	border-radius: 6px;
-	color: #757575;
 	margin-top: 20px;
 	text-align: center;
 	text-decoration: none;
 	line-height: 60px;
 	font-weight: 600;
 	width: 350px;
-	&:hover {
-		background: #3a0d51;
-		background: -webkit-linear-gradient(to right, #3a0d51, #621d3d);
-		background: linear-gradient(to right, #3a0d51, #621d3d);
-		color: #fff;
+	background: #3a0d51;
+	background: -webkit-linear-gradient(to right, #3a0d51, #621d3d);
+	background: linear-gradient(to right, #3a0d51, #621d3d);
+	color: #fff;
+	&:disabled {
+		background: #e0e0e0;
+		color: #757575;
 	}
 `;
 
