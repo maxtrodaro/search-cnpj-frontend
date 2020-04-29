@@ -8,6 +8,7 @@ import RegisterStore from "./pages/RegisterStore";
 import SearchStore from "./pages/SearchStore";
 import EditStore from "./pages/EditStore";
 import DeleteStore from "./pages/DeleteStore";
+import NotFound from "./pages/NotFound";
 
 export default function Routes() {
 	return (
@@ -20,6 +21,7 @@ export default function Routes() {
 				<Route path="/search-store" component={SearchStore} />
 				<Route path="/edit-store" component={EditStore} />
 				<Route path="/delete-store" component={DeleteStore} />
+				<Route component={NotFound} />
 			</Switch>
 		</BrowserRouter>
 	);
