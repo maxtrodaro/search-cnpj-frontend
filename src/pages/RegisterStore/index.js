@@ -17,7 +17,7 @@ export default function RegisterStore() {
 
 			alert(`${response.data}`);
 
-			history.push("/home");
+			window.location.reload();
 		} catch (erro) {
 			throw new Error(alert(erro.response.data.error));
 		}
