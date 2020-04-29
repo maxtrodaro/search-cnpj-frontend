@@ -35,6 +35,17 @@ export const SearchPage = styled.section`
 					background: -webkit-linear-gradient(to right, #3a0d51, #621d3d);
 					background: linear-gradient(to right, #3a0d51, #621d3d);
 					color: #fff;
+					position: relative;
+					&__counter {
+						position: absolute;
+						top: -100px;
+						p {
+							font-size: 18px;
+							b {
+								font-weight: 700;
+							}
+						}
+					}
 					&__cnpj {
 						width: 20%;
 						text-align: center;
@@ -110,6 +121,18 @@ export const SearchPage = styled.section`
 					background: -webkit-linear-gradient(to left, #3a0d51, #621d3d);
 					background: linear-gradient(to left, #3a0d51, #621d3d);
 					color: #fff;
+					position: relative;
+					&__counter {
+						position: absolute;
+						top: -100px;
+						right: 0;
+						p {
+							font-size: 18px;
+							b {
+								font-weight: 700;
+							}
+						}
+					}
 					&__name {
 						width: 60%;
 						text-align: center;

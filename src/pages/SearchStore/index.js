@@ -27,12 +27,15 @@ export default function SearchStore() {
 	const [cnpj, setCnpj] = useState([]);
 	const [server, setServer] = useState([]);
 	const [filteredStore, setFilteredStore] = useState(null);
+	const [counterStore, setCounterStore] = useState([]);
+	const [counterServer, setCounterServer] = useState([]);
 
 	useEffect(() => {
 		const loadStores = async () => {
 			const response = await api.get("store");
 
-			setStores(response.data);
+			setCounterStore(response.data.count);
+			setStores(response.data.rows);
 		};
 
 		loadStores();
@@ -42,7 +45,8 @@ export default function SearchStore() {
 		const loadServer = async () => {
 			const response = await api.get("server");
 
-			setServer(response.data);
+			setCounterServer(response.data.count);
+			setServer(response.data.rows);
 		};
 
 		loadServer();
@@ -89,6 +93,11 @@ export default function SearchStore() {
 				>
 					<section className="search-container__content">
 						<section className="search-container__content__items">
+							<section className="search-container__content__items__counter">
+								<p>
+									Total de CNPJs: <b>{counterStore}</b>
+								</p>
+							</section>
 							<span className="search-container__content__items__cnpj">
 								CNPJ
 							</span>
@@ -114,6 +123,11 @@ export default function SearchStore() {
 					</section>
 					<section className="search-container__servs">
 						<section className="search-container__servs__items">
+							<section className="search-container__servs__items__counter">
+								<p>
+									Total de Servidores: <b>{counterServer}</b>
+								</p>
+							</section>
 							<span className="search-container__servs__items__name">
 								Nome do Servidor
 							</span>
