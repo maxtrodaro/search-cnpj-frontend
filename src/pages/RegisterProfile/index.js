@@ -15,7 +15,9 @@ export default function Register() {
 
 	const handleSubmit = async (values) => {
 		try {
-			await api.post("/profile", values);
+			const response = await api.post("/profile", values);
+
+			alert(`${response.data.user}`);
 
 			history.push("/");
 		} catch (erro) {
