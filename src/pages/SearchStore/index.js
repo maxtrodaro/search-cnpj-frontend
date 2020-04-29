@@ -17,8 +17,8 @@ async function filterByCnpj(cnpj) {
 		});
 
 		return response.data;
-	} catch (error) {
-		throw new Error(error);
+	} catch (erro) {
+		throw new Error(alert(erro.response.data.error));
 	}
 }
 

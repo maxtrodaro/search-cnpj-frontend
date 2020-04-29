@@ -18,8 +18,8 @@ export default function DeleteStore() {
 			alert("Loja deletada com sucesso!");
 
 			history.push("/home");
-		} catch (error) {
-			alert("Loja não encontrada, tente novamente!");
+		} catch (erro) {
+			throw new Error(alert(erro.response.data.error));
 		}
 	};
 

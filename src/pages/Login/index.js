@@ -33,11 +33,11 @@ export default function Login() {
 					},
 				});
 				history.push("/home");
-			} catch (error) {
-				throw new Error("Senha inválida!");
+			} catch (erro) {
+				throw new Error(alert(erro.response.data.error));
 			}
-		} catch (error) {
-			throw new Error(alert("Senha inválida"));
+		} catch (erro) {
+			throw new Error(alert(erro.response.data.error));
 		}
 	};
 
@@ -78,7 +78,6 @@ export default function Login() {
 										name="username"
 										placeholder="Usuário:"
 										type="text"
-										autocomplete="off"
 										className={`login-container__form__input`}
 									/>
 									<p className="login-container__form__user"></p>
@@ -93,7 +92,6 @@ export default function Login() {
 										name="password"
 										placeholder="Senha:"
 										type="password"
-										autocomplete="off"
 										className="login-container__form__input"
 									/>
 									<p className="login-container__form__password"></p>

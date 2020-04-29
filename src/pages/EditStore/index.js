@@ -18,8 +18,8 @@ export default function EditStore() {
 			alert("Loja alterada com sucesso!");
 
 			history.push("/home");
-		} catch (error) {
-			alert("Não foi possível alterar essa loja, tente novamente!");
+		} catch (erro) {
+			throw new Error(alert(erro.response.data.error));
 		}
 	};
 

@@ -18,8 +18,8 @@ export default function Register() {
 			await api.post("/profile", values);
 
 			history.push("/");
-		} catch (error) {
-			throw new Error(error);
+		} catch (erro) {
+			throw new Error(alert(erro.response.data.error));
 		}
 	};
 

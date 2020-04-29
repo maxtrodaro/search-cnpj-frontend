@@ -18,8 +18,8 @@ export default function RegisterStore() {
 			alert(`${response.data}`);
 
 			history.push("/home");
-		} catch (error) {
-			alert("Não foi possível cadastrar essa loja, tente novamente!");
+		} catch (erro) {
+			throw new Error(alert(erro.response.data.error));
 		}
 	};
 
