@@ -7,6 +7,7 @@ import { InputSearch, ButtonSearch } from "../../util/Style/global";
 import api from "../../services/requestAPI";
 import StoreItem from "./StoreItem";
 import ServerItem from "./ServerItem";
+import RegexCnpj from "../../util/Regex/regexCnpj";
 
 async function filterByCnpj(cnpj) {
 	try {
@@ -64,7 +65,7 @@ export default function SearchStore() {
 	}
 
 	const handleChangeCnpj = (e) => {
-		setCnpj(e.target.value);
+		setCnpj(RegexCnpj(e.target.value));
 		setFilteredStore(null);
 	};
 
@@ -76,7 +77,7 @@ export default function SearchStore() {
 					<div className="search-container__top__option">
 						<InputSearch
 							placeholder="Digite o CNPJ"
-							type="number"
+							type="text"
 							onChange={handleChangeCnpj}
 						></InputSearch>
 						<ButtonSearch onClick={handleFilter}>
