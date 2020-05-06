@@ -3,12 +3,16 @@ import { Link, useHistory } from "react-router-dom";
 import { FiArrowLeftCircle } from "react-icons/fi";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import logoLinx from "../../assets/logo-linx.svg";
 
 import { Button } from "../../util/Style/global";
 import { ProfilePage } from "./style";
 import api from "../../services/requestAPI";
+
+toast.configure();
 
 export default function Register() {
 	const history = useHistory();
@@ -17,11 +21,17 @@ export default function Register() {
 		try {
 			const response = await api.post("/profile", values);
 
-			alert(`${response.data.user}`);
+			toast.success(response.data.user, {
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 3000,
+			});
 
 			history.push("/");
 		} catch (erro) {
-			throw new Error(alert(erro.response.data.error));
+			toast.error(erro.response.data.error, {
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 3000,
+			});
 		}
 	};
 

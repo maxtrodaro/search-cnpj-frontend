@@ -6,6 +6,8 @@ import { Link, useHistory } from "react-router-dom";
 import { FiLogIn } from "react-icons/fi";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { LoginPage } from "./style";
 
@@ -13,6 +15,8 @@ import api from "../../services/requestAPI";
 
 import logoLinx from "../../assets/logo-linx.svg";
 import { Button } from "../../util/Style/global";
+
+toast.configure();
 
 export default function Login() {
 	const history = useHistory();
@@ -34,10 +38,16 @@ export default function Login() {
 				});
 				history.push("/home");
 			} catch (erro) {
-				throw new Error(alert(erro.response.data.error));
+				toast.error(erro.response.data.error, {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
 			}
 		} catch (erro) {
-			throw new Error(alert(erro.response.data.error));
+			toast.error(erro.response.data.error, {
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 3000,
+			});
 		}
 	};
 

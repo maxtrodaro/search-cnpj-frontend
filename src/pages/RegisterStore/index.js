@@ -2,11 +2,15 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "../../util/Header/header";
 import { RegisterButton } from "../../util/Style/global";
 import { RegisterPage } from "./style";
 import api from "../../services/requestAPI";
+
+toast.configure();
 
 export default function RegisterStore() {
 	const history = useHistory();
@@ -15,11 +19,17 @@ export default function RegisterStore() {
 		try {
 			const response = await api.post("/store", values);
 
-			alert(`${response.data}`);
-
 			window.location.reload();
+
+			toast.success(response.data, {
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 3000,
+			});
 		} catch (erro) {
-			throw new Error(alert(erro.response.data.error));
+			toast.error(erro.response.data.error, {
+				position: toast.POSITION.TOP_CENTER,
+				autoClose: 3000,
+			});
 		}
 	};
 
