@@ -3,6 +3,7 @@ import styled from "styled-components";
 import iconName from "../../assets/icon-name.png";
 import iconUser from "../../assets/icon-user.png";
 import iconPass from "../../assets/icon-pass.png";
+import iconPerm from "../../assets/icon-perm.svg";
 
 export const ProfilePage = styled.section`
 	.register-container {
@@ -37,6 +38,7 @@ export const ProfilePage = styled.section`
 				left: 10%;
 				top: 5%;
 				padding: 0 5%;
+				z-index: 1;
 				&::after {
 					background: #f44336;
 					border-left: 2px solid #f44336;
@@ -57,17 +59,30 @@ export const ProfilePage = styled.section`
 					border: 2px solid #f44336;
 				}
 			}
+			.MuiInput-underline:after {
+				position: relative;
+			}
 			&__input {
 				width: 350px;
 				height: 60px;
 				color: #707070;
 				border: 2px solid #e0e0e0;
 				border-radius: 6px;
-				padding: 0 50px;
+				padding: 0 0 0 50px;
 				margin-top: 20px;
+				background: #fff;
+				&::before {
+					content: "";
+					position: relative;
+				}
 				&.error {
 					border: 2px solid #f44336;
 					color: #f44336;
+				}
+				.MuiSelect-select {
+					&:focus {
+						background: #fff;
+					}
 				}
 			}
 			&__name {
@@ -103,6 +118,18 @@ export const ProfilePage = styled.section`
 					height: 30px;
 					width: 32px;
 					top: 35px;
+					left: 15px;
+				}
+			}
+			&__perm {
+				&::before {
+					content: "";
+					background: url(${iconPerm}) no-repeat;
+					position: absolute;
+					display: block;
+					height: 30px;
+					width: 32px;
+					top: 40px;
 					left: 15px;
 				}
 			}

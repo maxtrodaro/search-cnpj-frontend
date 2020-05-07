@@ -5,6 +5,7 @@ import { ErrorMessage, Formik, Form, Field } from "formik";
 import * as yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Select, MenuItem } from "@material-ui/core";
 
 import logoLinx from "../../assets/logo-linx.svg";
 
@@ -19,6 +20,7 @@ export default function Register() {
 
 	const handleSubmit = async (values) => {
 		try {
+			console.log(values);
 			const response = await api.post("/profile", values);
 
 			toast.success(response.data.user, {
@@ -48,12 +50,14 @@ export default function Register() {
 		permission: yup
 			.string()
 			.min(6, "Permissão mínima de 6 digítos")
-			.required("Permissão Obrigatória"),
+			.required("Selecione um perfil"),
 	});
 
 	const initialValues = {
+		name: "",
 		username: "",
 		password: "",
+		permission: "",
 	};
 
 	return (
@@ -120,10 +124,18 @@ export default function Register() {
 									<Field
 										name="permission"
 										placeholder="Digite sua permissão"
-										type="text"
+										type="select"
+										as={Select}
 										className={`register-container__form__input`}
-									/>
-									<p className="register-container__form__pass"></p>
+									>
+										<MenuItem value="master" name="master">
+											Master
+										</MenuItem>
+										<MenuItem value="project" name="project">
+											Projetos
+										</MenuItem>
+									</Field>
+									<p className="register-container__form__perm"></p>
 								</div>
 								<Button type="submit" disabled={submitIsValid}>
 									Finalizar Cadastro
