@@ -24,7 +24,11 @@ export default function EditStore() {
 				autoClose: 3000,
 			});
 
-			history.push("/home");
+			if (sessionStorage.getItem("permission") === "project") {
+				history.push("/homeproject");
+			} else if (sessionStorage.getItem("permission") === "master") {
+				history.push("/homemaster");
+			}
 		} catch (erro) {
 			toast.error(erro.response.data.error, {
 				position: toast.POSITION.TOP_CENTER,
@@ -108,7 +112,17 @@ export default function EditStore() {
 							</div>
 						</div>
 						<div className="edit-container__form__buttons">
-							<RegisterButton onClick={() => history.push("/home")}>
+							<RegisterButton
+								onClick={() => {
+									if (sessionStorage.getItem("permission") === "project") {
+										history.push("/homeproject");
+									} else if (
+										sessionStorage.getItem("permission") === "master"
+									) {
+										history.push("/homemaster");
+									}
+								}}
+							>
 								Voltar
 							</RegisterButton>
 							<RegisterButton type="submit">Editar loja</RegisterButton>

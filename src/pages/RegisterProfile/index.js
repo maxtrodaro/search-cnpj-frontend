@@ -45,6 +45,10 @@ export default function Register() {
 			.string()
 			.min(8, "Senha mínima de 8 digítos")
 			.required("Senha obrigatória"),
+		permission: yup
+			.string()
+			.min(6, "Permissão mínima de 6 digítos")
+			.required("Permissão Obrigatória"),
 	});
 
 	const initialValues = {
@@ -103,6 +107,20 @@ export default function Register() {
 										name="password"
 										placeholder="Digite sua senha"
 										type="password"
+										className={`register-container__form__input`}
+									/>
+									<p className="register-container__form__pass"></p>
+								</div>
+								<div className="register-container__form__group">
+									<ErrorMessage
+										name="permission"
+										component="span"
+										className="register-container__form__error"
+									/>
+									<Field
+										name="permission"
+										placeholder="Digite sua permissão"
+										type="text"
 										className={`register-container__form__input`}
 									/>
 									<p className="register-container__form__pass"></p>

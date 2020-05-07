@@ -29,6 +29,7 @@ export default function Login() {
 
 			sessionStorage.setItem("username", response.data.user.username);
 			sessionStorage.setItem("name", response.data.user.name);
+			sessionStorage.setItem("permission", response.data.user.permission);
 
 			try {
 				await api.get("/token", {
@@ -36,7 +37,11 @@ export default function Login() {
 						Authorization: "Bearer " + token,
 					},
 				});
-				history.push("/home");
+				if (sessionStorage.getItem("permission") === "project") {
+					history.push("/homeproject");
+				} else if (sessionStorage.getItem("permission") === "master") {
+					history.push("/homemaster");
+				}
 			} catch (erro) {
 				toast.error(erro.response.data.error, {
 					position: toast.POSITION.TOP_CENTER,
