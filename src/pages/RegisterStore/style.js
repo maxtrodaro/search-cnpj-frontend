@@ -27,7 +27,7 @@ export const RegisterPage = styled.section`
 				border-radius: 10px;
 				height: 70%;
 				padding: 3%;
-				top: 26%;
+				top: 28%;
 				&__group {
 					position: relative;
 				}

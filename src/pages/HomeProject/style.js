@@ -9,7 +9,7 @@ export const HomePage = styled.section`
 			top: 30%;
 			display: flex;
 			align-items: center;
-			justify-content: space-between;
+			justify-content: space-around;
 			right: 0;
 			left: 0;
 			margin: 0 auto;
