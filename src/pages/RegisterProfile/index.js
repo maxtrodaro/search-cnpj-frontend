@@ -20,7 +20,6 @@ export default function Register() {
 
 	const handleSubmit = async (values) => {
 		try {
-			console.log(values);
 			const response = await api.post("/profile", values);
 
 			toast.success(response.data.user, {
