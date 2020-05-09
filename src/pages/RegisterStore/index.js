@@ -17,7 +17,10 @@ export default function RegisterStore() {
 
 	const handleSubmit = async (values) => {
 		try {
-			const response = await api.post("/store", values);
+			const response = await api.post(
+				`/server/${values.serv_ip}/store`,
+				values
+			);
 
 			window.location.reload();
 
