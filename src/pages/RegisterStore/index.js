@@ -9,6 +9,7 @@ import Header from "../../util/Header/header";
 import { RegisterButton } from "../../util/Style/global";
 import { RegisterPage } from "./style";
 import api from "../../services/requestAPI";
+import RegexCnpj from "../../util/Regex/regexCnpj";
 
 toast.configure();
 
@@ -16,18 +17,35 @@ export default function RegisterStore() {
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
+		const newCnpj = RegexCnpj(values.cnpj);
+
+		console.log(values.name.trim());
+		console.log(values.cod_emp.trim());
+
 		try {
-			const response = await api.post(
-				`/server/${values.serv_ip}/store`,
-				values
-			);
+			if (newCnpj.length < 14) {
+				toast.error("CNPJ Inválido", {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
+			} else if (values.cod_emp.trim() || values.name.trim()) {
+				toast.error("Preencha com informações válidas", {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
+			} else {
+				const response = await api.post(
+					`/server/${values.serv_ip}/store`,
+					values
+				);
 
-			window.location.reload();
+				window.location.reload();
 
-			toast.success(response.data, {
-				position: toast.POSITION.TOP_CENTER,
-				autoClose: 3000,
-			});
+				toast.success(response.data, {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
+			}
 		} catch (erro) {
 			toast.error(erro.response.data.error, {
 				position: toast.POSITION.TOP_CENTER,

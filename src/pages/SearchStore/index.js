@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Header from "../../util/Header/header";
 import { SearchPage } from "./style";
@@ -22,6 +24,8 @@ async function filterByCnpj(cnpj) {
 		throw new Error(alert(erro.response.data.error));
 	}
 }
+
+toast.configure();
 
 export default function SearchStore() {
 	const [stores, setStores] = useState([]);
@@ -58,14 +62,30 @@ export default function SearchStore() {
 
 		try {
 			const store = await filterByCnpj(cnpj);
+			if (store === null) {
+				toast.error("CNPJ não encontrado", {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
+			}
 			setFilteredStore(store);
 		} catch (error) {
 			setFilteredStore(null);
 		}
 	}
 
+	/*
+	if (newCnpj.length < 14) {
+		toast.error("CNPJ Inválido", {
+			position: toast.POSITION.TOP_CENTER,
+			autoClose: 3000,
+		});
+	}
+	*/
+
 	const handleChangeCnpj = (e) => {
-		setCnpj(RegexCnpj(e.target.value));
+		const newCnpj = RegexCnpj(e.target.value);
+		setCnpj(newCnpj);
 		setFilteredStore(null);
 	};
 
