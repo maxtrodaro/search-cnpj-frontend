@@ -20,14 +20,25 @@ export default function Register() {
 
 	const handleSubmit = async (values) => {
 		try {
-			const response = await api.post("/profile", values);
+			if (
+				values.name.trim().length < 8 ||
+				values.username.trim().length < 3 ||
+				values.password.trim().length < 8
+			) {
+				toast.error("Preencha com informações válidas", {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
+			} else {
+				const response = await api.post("/profile", values);
 
-			toast.success(response.data.user, {
-				position: toast.POSITION.TOP_CENTER,
-				autoClose: 3000,
-			});
+				toast.success(response.data.user, {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
 
-			history.push("/");
+				history.push("/");
+			}
 		} catch (erro) {
 			toast.error(erro.response.data.error, {
 				position: toast.POSITION.TOP_CENTER,

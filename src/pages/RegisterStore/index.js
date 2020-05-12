@@ -19,16 +19,16 @@ export default function RegisterStore() {
 	const handleSubmit = async (values) => {
 		const newCnpj = RegexCnpj(values.cnpj);
 
-		console.log(values.name.trim());
-		console.log(values.cod_emp.trim());
-
 		try {
 			if (newCnpj.length < 14) {
 				toast.error("CNPJ Inválido", {
 					position: toast.POSITION.TOP_CENTER,
 					autoClose: 3000,
 				});
-			} else if (values.cod_emp.trim() || values.name.trim()) {
+			} else if (
+				values.cod_emp.trim().length < 8 ||
+				values.name.trim().length < 3
+			) {
 				toast.error("Preencha com informações válidas", {
 					position: toast.POSITION.TOP_CENTER,
 					autoClose: 3000,
