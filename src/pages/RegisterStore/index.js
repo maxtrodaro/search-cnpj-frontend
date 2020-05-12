@@ -81,74 +81,82 @@ export default function RegisterStore() {
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>
-					<Form className="register-container__form">
-						<div className="register-container__form__left">
-							<p className="register-container__form__title">
-								Informações da loja
-							</p>
-							<div className="register-container__form__group">
-								<ErrorMessage name="name" component="span" />
-								<Field
-									name="name"
-									placeholder="Nome:"
-									type="text"
-									className={`register-container__form__left__name`}
-								/>
-								<p className="register-container__form__left__userIcon"></p>
-							</div>
-							<div className="register-container__form__group">
-								<ErrorMessage name="cnpj" component="span" />
-								<Field
-									name="cnpj"
-									placeholder="CNPJ:"
-									type="text"
-									className={`register-container__form__left__cnpj`}
-								/>
-								<p className="register-container__form__left__cnpjIcon"></p>
-							</div>
-							<div className="register-container__form__group">
-								<ErrorMessage name="cod_emp" component="span" />
-								<Field
-									name="cod_emp"
-									placeholder="Código da empresa:"
-									type="text"
-									className={`register-container__form__left__cod`}
-								/>
-								<p className="register-container__form__left__codIcon"></p>
-							</div>
-						</div>
-						<div className="register-container__form__right">
-							<p className="register-container__form__title">
-								Ambiente da loja
-							</p>
-							<div className="register-container__form__group">
-								<ErrorMessage name="serv_ip" component="span" />
-								<Field
-									name="serv_ip"
-									placeholder="Endereço do servidor:"
-									type="text"
-									className={`register-container__form__right__serv`}
-								/>
-								<p className="register-container__form__right__servIcon"></p>
-							</div>
-						</div>
-						<div className="register-container__form__buttons">
-							<RegisterButton
-								onClick={() => {
-									if (sessionStorage.getItem("permission") === "project") {
-										history.push("/homeproject");
-									} else if (
-										sessionStorage.getItem("permission") === "master"
-									) {
-										history.push("/homemaster");
-									}
-								}}
-							>
-								Voltar
-							</RegisterButton>
-							<RegisterButton type="submit">Cadastrar loja</RegisterButton>
-						</div>
-					</Form>
+					{({ dirty, isValid }) => {
+						const submitIsValid = !dirty || !isValid;
+
+						return (
+							<Form className="register-container__form">
+								<div className="register-container__form__left">
+									<p className="register-container__form__title">
+										Informações da loja
+									</p>
+									<div className="register-container__form__group">
+										<ErrorMessage name="name" component="span" />
+										<Field
+											name="name"
+											placeholder="Nome:"
+											type="text"
+											className={`register-container__form__left__name`}
+										/>
+										<p className="register-container__form__left__userIcon"></p>
+									</div>
+									<div className="register-container__form__group">
+										<ErrorMessage name="cnpj" component="span" />
+										<Field
+											name="cnpj"
+											placeholder="CNPJ:"
+											type="text"
+											className={`register-container__form__left__cnpj`}
+										/>
+										<p className="register-container__form__left__cnpjIcon"></p>
+									</div>
+									<div className="register-container__form__group">
+										<ErrorMessage name="cod_emp" component="span" />
+										<Field
+											name="cod_emp"
+											placeholder="Código da empresa:"
+											type="text"
+											className={`register-container__form__left__cod`}
+										/>
+										<p className="register-container__form__left__codIcon"></p>
+									</div>
+								</div>
+								<div className="register-container__form__right">
+									<p className="register-container__form__title">
+										Ambiente da loja
+									</p>
+									<div className="register-container__form__group">
+										<ErrorMessage name="serv_ip" component="span" />
+										<Field
+											name="serv_ip"
+											placeholder="Endereço do servidor:"
+											type="text"
+											className={`register-container__form__right__serv`}
+										/>
+										<p className="register-container__form__right__servIcon"></p>
+									</div>
+								</div>
+								<div className="register-container__form__buttons">
+									<RegisterButton
+										onClick={() => {
+											if (sessionStorage.getItem("permission") === "project") {
+												history.push("/homeproject");
+											} else if (
+												sessionStorage.getItem("permission") === "master"
+											) {
+												history.push("/homemaster");
+											}
+										}}
+									>
+										Voltar
+									</RegisterButton>
+									<RegisterButton type="submit" disabled={submitIsValid}>
+										Cadastrar loja
+									</RegisterButton>
+								</div>
+							</Form>
+						);
+					}}
 				</Formik>
 			</section>
 			<section className="register-style"></section>

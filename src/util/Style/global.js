@@ -58,6 +58,10 @@ export const RegisterButton = styled.button`
 	&:not(:last-child) {
 		margin-right: 20px;
 	}
+	&:disabled {
+		background: #e0e0e0;
+		color: #757575;
+	}
 `;
 
 export const RegisterLink = styled.a`
