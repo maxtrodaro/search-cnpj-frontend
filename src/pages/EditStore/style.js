@@ -203,7 +203,9 @@ export const EditPage = styled.section`
 					left: 0;
 					right: 0;
 					margin: 0 auto;
-					text-align: center;
+					display: flex;
+					justify-content: center;
+					flex-direction: row-reverse;
 				}
 			}
 		}

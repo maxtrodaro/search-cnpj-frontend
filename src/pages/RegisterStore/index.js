@@ -137,6 +137,9 @@ export default function RegisterStore() {
 									</div>
 								</div>
 								<div className="register-container__form__buttons">
+									<RegisterButton type="submit" disabled={submitIsValid}>
+										Cadastrar loja
+									</RegisterButton>
 									<RegisterButton
 										onClick={() => {
 											if (sessionStorage.getItem("permission") === "project") {
@@ -149,9 +152,6 @@ export default function RegisterStore() {
 										}}
 									>
 										Voltar
-									</RegisterButton>
-									<RegisterButton type="submit" disabled={submitIsValid}>
-										Cadastrar loja
 									</RegisterButton>
 								</div>
 							</Form>

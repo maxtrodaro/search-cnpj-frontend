@@ -138,6 +138,9 @@ export default function EditStore() {
 									</div>
 								</div>
 								<div className="edit-container__form__buttons">
+									<RegisterButton type="submit" disabled={submitIsValid}>
+										Editar loja
+									</RegisterButton>
 									<RegisterButton
 										onClick={() => {
 											if (sessionStorage.getItem("permission") === "project") {
@@ -150,9 +153,6 @@ export default function EditStore() {
 										}}
 									>
 										Voltar
-									</RegisterButton>
-									<RegisterButton type="submit" disabled={submitIsValid}>
-										Editar loja
 									</RegisterButton>
 								</div>
 							</Form>

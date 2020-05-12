@@ -57,9 +57,7 @@ export default function SearchStore() {
 		loadServer();
 	}, []);
 
-	async function handleFilter(event) {
-		event.preventDefault();
-
+	async function handleFilter() {
 		try {
 			const store = await filterByCnpj(cnpj);
 			if (store === null) {
@@ -74,14 +72,11 @@ export default function SearchStore() {
 		}
 	}
 
-	/*
-	if (newCnpj.length < 14) {
-		toast.error("CNPJ Inválido", {
-			position: toast.POSITION.TOP_CENTER,
-			autoClose: 3000,
-		});
+	function enterKey(event) {
+		if (event.key === "Enter" || event.key === "NumpadEnter") {
+			handleFilter();
+		}
 	}
-	*/
 
 	const handleChangeCnpj = (e) => {
 		const newCnpj = RegexCnpj(e.target.value);
@@ -99,6 +94,7 @@ export default function SearchStore() {
 							placeholder="Digite o CNPJ"
 							type="text"
 							onChange={handleChangeCnpj}
+							onKeyUp={enterKey}
 						></InputSearch>
 						<ButtonSearch onClick={handleFilter}>
 							<FiSearch color="#FFFFFF" size={20} />

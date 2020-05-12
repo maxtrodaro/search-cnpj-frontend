@@ -80,6 +80,9 @@ export default function DeleteStore() {
 									<p className="delete-container__form__cnpjIcon"></p>
 								</div>
 								<div className="delete-container__form__buttons">
+									<RegisterButton type="submit" disabled={submitIsValid}>
+										Excluir loja
+									</RegisterButton>
 									<RegisterButton
 										onClick={() => {
 											if (sessionStorage.getItem("permission") === "project") {
@@ -92,9 +95,6 @@ export default function DeleteStore() {
 										}}
 									>
 										Voltar
-									</RegisterButton>
-									<RegisterButton type="submit" disabled={submitIsValid}>
-										Excluir loja
 									</RegisterButton>
 								</div>
 							</Form>

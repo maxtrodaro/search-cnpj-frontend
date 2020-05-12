@@ -55,7 +55,7 @@ export const RegisterButton = styled.button`
 	line-height: 60px;
 	font-weight: 600;
 	width: 200px;
-	&:not(:last-child) {
+	&:not(:first-child) {
 		margin-right: 20px;
 	}
 	&:disabled {
