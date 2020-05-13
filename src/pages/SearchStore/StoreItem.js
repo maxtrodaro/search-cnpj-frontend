@@ -2,10 +2,7 @@ import React from "react";
 
 export default function StoreItem({ store }) {
 	return (
-		<li
-			key={store.id}
-			className="search-container__content__bottom__list__item"
-		>
+		<li className="search-container__content__bottom__list__item">
 			<p className="search-container__content__bottom__list__item__cnpj">
 				{store.cnpj}
 			</p>

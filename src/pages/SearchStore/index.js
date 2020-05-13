@@ -133,7 +133,9 @@ export default function SearchStore() {
 								{filteredStore ? (
 									<StoreItem store={filteredStore} />
 								) : (
-									stores.map((store) => <StoreItem store={store} />)
+									stores.map((store, index) => (
+										<StoreItem key={index} store={store} />
+									))
 								)}
 							</ul>
 						</section>
@@ -157,8 +159,8 @@ export default function SearchStore() {
 						</section>
 						<section className="search-container__servs__bottom">
 							<ul className="search-container__servs__bottom__list">
-								{server.map((server) => (
-									<ServerItem server={server} />
+								{server.map((server, index) => (
+									<ServerItem key={index} server={server} />
 								))}
 							</ul>
 						</section>
