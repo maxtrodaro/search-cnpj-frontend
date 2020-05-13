@@ -9,7 +9,7 @@ export default function ServerItem({ server }) {
 			<p className="search-container__servs__bottom__list__item__serv">
 				{server.ip}
 			</p>
-			<p className="search-container__servs__bottom__list__item__qtd">11</p>
+			{/* <p className="search-container__servs__bottom__list__item__qtd">11</p> */}
 		</li>
 	);
 }

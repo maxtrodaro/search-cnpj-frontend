@@ -153,9 +153,9 @@ export default function SearchStore() {
 							<span className="search-container__servs__items__serv">
 								Servidor
 							</span>
-							<span className="search-container__servs__items__qtd">
+							{/* <span className="search-container__servs__items__qtd">
 								QTD. CNPJs
-							</span>
+									</span>*/}
 						</section>
 						<section className="search-container__servs__bottom">
 							<ul className="search-container__servs__bottom__list">
