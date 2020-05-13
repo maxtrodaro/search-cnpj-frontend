@@ -10,11 +10,10 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import { LoginPage } from "./style";
-
 import api from "../../services/requestAPI";
-
 import logoLinx from "../../assets/logo-linx.svg";
 import { Button } from "../../util/Style/global";
+import ResetInitialValues from "../../util/ResetsFormik/initialValues";
 
 toast.configure();
 
@@ -64,17 +63,12 @@ export default function Login() {
 			.required("Senha obrigatória"),
 	});
 
-	const initialValues = {
-		username: "",
-		password: "",
-	};
-
 	return (
 		<LoginPage>
 			<div className="login-container">
 				<img src={logoLinx} alt="Linx" />
 				<Formik
-					initialValues={initialValues}
+					initialValues={ResetInitialValues}
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>

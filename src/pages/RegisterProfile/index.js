@@ -8,10 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Select, MenuItem } from "@material-ui/core";
 
 import logoLinx from "../../assets/logo-linx.svg";
-
 import { Button } from "../../util/Style/global";
 import { ProfilePage } from "./style";
 import api from "../../services/requestAPI";
+import ResetInitialValues from "../../util/ResetsFormik/initialValues";
 
 toast.configure();
 
@@ -63,18 +63,11 @@ export default function Register() {
 			.required("Selecione um perfil"),
 	});
 
-	const initialValues = {
-		name: "",
-		username: "",
-		password: "",
-		permission: "",
-	};
-
 	return (
 		<ProfilePage>
 			<div className="register-container">
 				<Formik
-					initialValues={initialValues}
+					initialValues={ResetInitialValues}
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>

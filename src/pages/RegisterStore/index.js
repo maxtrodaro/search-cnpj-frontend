@@ -10,6 +10,7 @@ import { RegisterButton } from "../../util/Style/global";
 import { RegisterPage } from "./style";
 import api from "../../services/requestAPI";
 import RegexCnpj from "../../util/Regex/regexCnpj";
+import ResetInitialValues from "../../util/ResetsFormik/initialValues";
 
 toast.configure();
 
@@ -77,7 +78,7 @@ export default function RegisterStore() {
 			<section className="register-container">
 				<h2>Cadastrar loja</h2>
 				<Formik
-					initialValues={{}}
+					initialValues={ResetInitialValues}
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>

@@ -10,6 +10,7 @@ import { RegisterButton } from "../../util/Style/global";
 import { DeletePage } from "./style";
 import api from "../../services/requestAPI";
 import RegexCnpj from "../../util/Regex/regexCnpj";
+import ResetInitialValues from "../../util/ResetsFormik/initialValues";
 
 toast.configure();
 
@@ -60,7 +61,7 @@ export default function DeleteStore() {
 			<section className="delete-container">
 				<h2>Excluir loja</h2>
 				<Formik
-					initialValues={{}}
+					initialValues={ResetInitialValues}
 					onSubmit={handleSubmit}
 					validationSchema={validations}
 				>
