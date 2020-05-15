@@ -12,6 +12,7 @@ import { Button } from "../../util/Style/global";
 import { ProfilePage } from "./style";
 import api from "../../services/requestAPI";
 import ResetInitialValues from "../../util/ResetsFormik/initialValues";
+import RemoveWhiteSpace from "../../util/Regex/regexWhiteSpace";
 
 toast.configure();
 
@@ -21,11 +22,10 @@ export default function Register() {
 	const handleSubmit = async (values) => {
 		try {
 			if (
-				values.name.trim().length < 8 ||
-				values.username.trim().length < 3 ||
-				values.password.trim().length < 8
+				RemoveWhiteSpace(values.username) ||
+				RemoveWhiteSpace(values.password)
 			) {
-				toast.error("Preencha com informações válidas", {
+				toast.error("Remova os espaços em branco", {
 					position: toast.POSITION.TOP_CENTER,
 					autoClose: 3000,
 				});
