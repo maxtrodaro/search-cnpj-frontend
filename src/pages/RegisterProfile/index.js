@@ -59,7 +59,7 @@ export default function Register() {
 			.required("Senha obrigatória"),
 		permission: yup
 			.string()
-			.min(6, "Permissão mínima de 6 digítos")
+			.min(5, "Permissão mínima de 5 digítos")
 			.required("Selecione um perfil"),
 	});
 
@@ -131,6 +131,9 @@ export default function Register() {
 										as={Select}
 										className={`register-container__form__input`}
 									>
+										<MenuItem value="cloud" name="cloud">
+											Cloud
+										</MenuItem>
 										<MenuItem value="search" name="search">
 											Consultas
 										</MenuItem>

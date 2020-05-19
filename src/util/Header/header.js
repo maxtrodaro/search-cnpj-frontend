@@ -23,6 +23,8 @@ export default function Header() {
 			history.push("/homemaster");
 		} else if (sessionStorage.getItem("permission") === "search") {
 			history.push("/homesearch");
+		} else if (sessionStorage.getItem("permission") === "cloud") {
+			history.push("/homecloud");
 		}
 	}
 
