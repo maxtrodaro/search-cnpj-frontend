@@ -21,6 +21,8 @@ export default function Header() {
 			history.push("/homeproject");
 		} else if (sessionStorage.getItem("permission") === "master") {
 			history.push("/homemaster");
+		} else if (sessionStorage.getItem("permission") === "search") {
+			history.push("/homesearch");
 		}
 	}
 

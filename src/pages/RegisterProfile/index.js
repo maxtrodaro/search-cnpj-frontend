@@ -131,6 +131,9 @@ export default function Register() {
 										as={Select}
 										className={`register-container__form__input`}
 									>
+										<MenuItem value="search" name="search">
+											Consultas
+										</MenuItem>
 										<MenuItem value="master" name="master">
 											Master
 										</MenuItem>

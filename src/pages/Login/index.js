@@ -40,6 +40,8 @@ export default function Login() {
 					history.push("/homeproject");
 				} else if (sessionStorage.getItem("permission") === "master") {
 					history.push("/homemaster");
+				} else if (sessionStorage.getItem("permission") === "search") {
+					history.push("/homesearch");
 				}
 			} catch (erro) {
 				toast.error(erro.response.data.error, {
