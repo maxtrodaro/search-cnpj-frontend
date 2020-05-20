@@ -8,6 +8,7 @@ import HomeMaster from "../pages/HomeMaster";
 import HomeProject from "../pages/HomeProject";
 import HomeSearch from "../pages/HomeSearch";
 import RegisterStore from "../pages/RegisterStore";
+import RegisterServer from "../pages/RegisterServer";
 import SearchStore from "../pages/SearchStore";
 import EditStore from "../pages/EditStore";
 import DeleteStore from "../pages/DeleteStore";
@@ -26,6 +27,7 @@ export default function Routes() {
 				<PrivateRoute path="/homeproject" component={HomeProject} />
 				<PrivateRoute path="/homesearch" component={HomeSearch} />
 				<PrivateRoute path="/register-store" component={RegisterStore} />
+				<PrivateRoute path="/register-server" component={RegisterServer} />
 				<PrivateRoute path="/search-store" component={SearchStore} />
 				<PrivateRoute path="/edit-store" component={EditStore} />
 				<PrivateRoute path="/delete-store" component={DeleteStore} />

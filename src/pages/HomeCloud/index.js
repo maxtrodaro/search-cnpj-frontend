@@ -32,11 +32,14 @@ export default function Home() {
 						/>
 						<HomeButton type="submit">Consultar loja</HomeButton>
 					</Link>
-					<Link to="/edit-store" className="home-container__buttons__group">
+					<Link
+						to="/register-server"
+						className="home-container__buttons__group"
+					>
 						<img
 							src={iconServer}
 							alt="Imagem do botão Cadastrar Servidor"
-							title="Cadastrar Loja"
+							title="Cadastrar Servidor"
 						/>
 						<HomeButton type="submit">Cadastrar Servidor</HomeButton>
 					</Link>
