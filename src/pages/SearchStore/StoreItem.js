@@ -1,13 +1,7 @@
 import React from "react";
+import RegexFormatedData from "../../util/Regex/regexData";
 
 export default function StoreItem({ store }) {
-	function formatedData(data) {
-		data = data.split(/T/g);
-		let newData = data[0].substr(0, 10).split("-").reverse().join("/");
-
-		return newData;
-	}
-
 	return (
 		<li className="search-container__content__bottom__list__item">
 			<p className="search-container__content__bottom__list__item__cnpj">
@@ -23,7 +17,7 @@ export default function StoreItem({ store }) {
 				{store.serv_ip}
 			</p>
 			<p className="search-container__content__bottom__list__item__data">
-				{formatedData(store.createdAt)}
+				{RegexFormatedData(store.createdAt)}
 			</p>
 		</li>
 	);

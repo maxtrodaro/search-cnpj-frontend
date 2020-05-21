@@ -38,7 +38,6 @@ export default function SearchStore() {
 	useEffect(() => {
 		const loadStores = async () => {
 			const response = await api.get("store");
-			console.log(response);
 
 			setCounterStore(response.data.count);
 			setStores(response.data.rows);
