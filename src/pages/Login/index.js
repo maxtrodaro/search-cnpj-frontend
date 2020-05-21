@@ -22,6 +22,7 @@ export default function Login() {
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
+		console.log(values);
 		try {
 			const response = await api.post("/authenticate", values);
 
