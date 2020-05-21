@@ -38,6 +38,10 @@ export default function DeleteStore() {
 					history.push("/homeproject");
 				} else if (sessionStorage.getItem("permission") === "master") {
 					history.push("/homemaster");
+				} else if (sessionStorage.getItem("permission") === "search") {
+					history.push("/homesearch");
+				} else if (sessionStorage.getItem("permission") === "cloud") {
+					history.push("/homecloud");
 				}
 			}
 		} catch (erro) {
@@ -92,6 +96,14 @@ export default function DeleteStore() {
 												sessionStorage.getItem("permission") === "master"
 											) {
 												history.push("/homemaster");
+											} else if (
+												sessionStorage.getItem("permission") === "search"
+											) {
+												history.push("/homesearch");
+											} else if (
+												sessionStorage.getItem("permission") === "cloud"
+											) {
+												history.push("/homecloud");
 											}
 										}}
 									>

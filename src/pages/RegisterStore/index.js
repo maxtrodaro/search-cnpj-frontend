@@ -149,6 +149,14 @@ export default function RegisterStore() {
 												sessionStorage.getItem("permission") === "master"
 											) {
 												history.push("/homemaster");
+											} else if (
+												sessionStorage.getItem("permission") === "search"
+											) {
+												history.push("/homesearch");
+											} else if (
+												sessionStorage.getItem("permission") === "cloud"
+											) {
+												history.push("/homecloud");
 											}
 										}}
 									>
