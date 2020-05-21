@@ -51,7 +51,7 @@ export const SearchPage = styled.section`
 						text-align: center;
 					}
 					&__name {
-						width: 45%;
+						width: 35%;
 						text-align: center;
 					}
 					&__cod {
@@ -59,6 +59,10 @@ export const SearchPage = styled.section`
 						text-align: center;
 					}
 					&__serv {
+						width: 15%;
+						text-align: center;
+					}
+					&__data {
 						width: 15%;
 						text-align: center;
 					}
@@ -89,7 +93,7 @@ export const SearchPage = styled.section`
 								text-align: center;
 							}
 							&__name {
-								width: 45%;
+								width: 35%;
 								text-overflow: ellipsis;
 								overflow: hidden;
 								white-space: nowrap;
@@ -99,6 +103,10 @@ export const SearchPage = styled.section`
 								text-align: center;
 							}
 							&__serv {
+								width: 15%;
+								text-align: center;
+							}
+							&__data {
 								width: 15%;
 								text-align: center;
 							}

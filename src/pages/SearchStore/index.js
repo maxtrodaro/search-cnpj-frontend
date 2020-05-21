@@ -38,6 +38,7 @@ export default function SearchStore() {
 	useEffect(() => {
 		const loadStores = async () => {
 			const response = await api.get("store");
+			console.log(response);
 
 			setCounterStore(response.data.count);
 			setStores(response.data.rows);
@@ -126,6 +127,9 @@ export default function SearchStore() {
 							</span>
 							<span className="search-container__content__items__serv">
 								IP Servidor
+							</span>
+							<span className="search-container__content__items__data">
+								Data Criação
 							</span>
 						</section>
 						<section className="search-container__content__bottom">
