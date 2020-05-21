@@ -18,6 +18,7 @@ import ResetInitialValues from "../../util/ResetsFormik/initialValues";
 toast.configure();
 
 export default function Login() {
+	sessionStorage.clear();
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
