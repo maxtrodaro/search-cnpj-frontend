@@ -10,6 +10,7 @@ import { RegisterButton } from "../../util/Style/global";
 import { DeletePage } from "./style";
 import api from "../../services/requestAPI";
 import ResetInitialValues from "../../util/ResetsFormik/initialValues";
+import RegexServerIp from "../../util/Regex/regexServerIp";
 
 toast.configure();
 
@@ -17,25 +18,32 @@ export default function DeleteStore() {
 	const history = useHistory();
 
 	const handleSubmit = async (values) => {
-		try {
-			await api.post("/server", values);
+		if (RegexServerIp(values.ip)) {
+			try {
+				await api.post("/server", values);
 
-			toast.success("Servidor cadastrado com sucesso!", {
-				position: toast.POSITION.TOP_CENTER,
-				autoClose: 3000,
-			});
+				toast.success("Servidor cadastrado com sucesso!", {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
 
-			if (sessionStorage.getItem("permission") === "project") {
-				history.push("/homeproject");
-			} else if (sessionStorage.getItem("permission") === "master") {
-				history.push("/homemaster");
-			} else if (sessionStorage.getItem("permission") === "search") {
-				history.push("/homesearch");
-			} else if (sessionStorage.getItem("permission") === "cloud") {
-				history.push("/homecloud");
+				if (sessionStorage.getItem("permission") === "project") {
+					history.push("/homeproject");
+				} else if (sessionStorage.getItem("permission") === "master") {
+					history.push("/homemaster");
+				} else if (sessionStorage.getItem("permission") === "search") {
+					history.push("/homesearch");
+				} else if (sessionStorage.getItem("permission") === "cloud") {
+					history.push("/homecloud");
+				}
+			} catch (erro) {
+				toast.error(erro.response.data.error, {
+					position: toast.POSITION.TOP_CENTER,
+					autoClose: 3000,
+				});
 			}
-		} catch (erro) {
-			toast.error(erro.response.data.error, {
+		} else {
+			toast.error("Digite um IP de servidor válido", {
 				position: toast.POSITION.TOP_CENTER,
 				autoClose: 3000,
 			});
