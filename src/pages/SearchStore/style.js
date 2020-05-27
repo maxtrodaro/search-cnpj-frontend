@@ -193,7 +193,7 @@ export const SearchPage = styled.section`
 							padding: 5px;
 							background: ${variables.colors.borderGray};
 							&:nth-child(2n + 1) {
-								background: ${variables.colors.borderGray};
+								background: ${variables.colors.backgroundGray};
 							}
 							&:hover {
 								background: ${variables.colors.primaryColor};
