@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
+import variables from "../../util/Style/variables";
+
 export const Notfound = styled.section`
 	h1 {
-		color: #fff;
+		color: ${variables.colors.white};
 		display: flex;
 		justify-content: center;
 		align-items: center;

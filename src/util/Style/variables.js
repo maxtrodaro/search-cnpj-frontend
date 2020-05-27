@@ -5,6 +5,7 @@ export default {
 		black: "#000000",
 		lightBlack: "#333333",
 		gray: "#707070",
+		backgroundGray: "#EEEEEE",
 		lightGray: "#F5F5F5",
 		mediumGray: "#CCCCCC",
 		darkGray: "#757575",

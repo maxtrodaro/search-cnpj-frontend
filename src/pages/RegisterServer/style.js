@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import variables from "../../util/Style/variables";
 import iconNameServer from "../../assets/icon-server-name.svg";
 import iconServer from "../../assets/icon-serv.svg";
 
@@ -13,7 +14,7 @@ export const DeletePage = styled.section`
 			height: 20vh;
 			h2 {
 				text-transform: uppercase;
-				color: #fff;
+				color: ${variables.colors.white};
 				font-size: 28px;
 			}
 			&__form {
@@ -21,7 +22,7 @@ export const DeletePage = styled.section`
 				flex-direction: column;
 				position: absolute;
 				width: 40%;
-				background: #f5f5f5;
+				background: ${variables.colors.lightGray};
 				border-radius: 10px;
 				height: 50%;
 				padding: 2.5%;
@@ -33,8 +34,8 @@ export const DeletePage = styled.section`
 				span {
 					position: absolute;
 					width: auto;
-					background: #f44336;
-					color: #ffffff;
+					background: ${variables.colors.red};
+					color: ${variables.colors.white};
 					text-align: center;
 					border-radius: 6px;
 					height: 24px;
@@ -43,9 +44,9 @@ export const DeletePage = styled.section`
 					top: 5%;
 					padding: 0 5%;
 					&::after {
-						background: #f44336;
-						border-left: 2px solid #f44336;
-						border-top: 2px solid #f44336;
+						background: ${variables.colors.red};
+						border-left: 2px solid ${variables.colors.red};
+						border-top: 2px solid ${variables.colors.red};
 						content: "";
 						height: 12px;
 						position: absolute;
@@ -59,20 +60,20 @@ export const DeletePage = styled.section`
 						z-index: 0;
 					}
 					+ input {
-						border: 2px solid #f44336;
+						border: 2px solid ${variables.colors.red};
 					}
 				}
 				input {
 					width: 100%;
 					height: 60px;
-					color: #707070;
-					border: 2px solid #e0e0e0;
+					color: ${variables.colors.gray};
+					border: 2px solid ${variables.colors.borderGray};
 					border-radius: 6px;
 					padding: 0 50px;
 					margin-top: 20px;
 					&.error {
-						border: 2px solid #f44336;
-						color: #f44336;
+						border: 2px solid ${variables.colors.red};
+						color: ${variables.colors.red};
 					}
 				}
 				&__nameIcon {
@@ -109,7 +110,7 @@ export const DeletePage = styled.section`
 		&-style {
 			height: 70vh;
 			width: 100%;
-			background: #fafafa;
+			background: ${variables.colors.backgroundWhite};
 		}
 	}
 `;

@@ -1,6 +1,6 @@
 import React from "react";
 
-import GlobalStyle from "./reset";
+import GlobalStyle from "./util/Style/reset";
 import Routes from "./routes/routes";
 
 function App() {

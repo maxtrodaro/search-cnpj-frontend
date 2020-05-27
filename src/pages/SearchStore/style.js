@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import variables from "../../util/Style/variables";
+
 export const SearchPage = styled.section`
 	.search {
 		&-container {
@@ -31,10 +33,18 @@ export const SearchPage = styled.section`
 					border: none;
 					border-bottom: 0;
 					border-radius: 6px 6px 0 0;
-					background: #3a0d51;
-					background: -webkit-linear-gradient(to right, #3a0d51, #621d3d);
-					background: linear-gradient(to right, #3a0d51, #621d3d);
-					color: #fff;
+					background: ${variables.colors.primaryColor};
+					background: -webkit-linear-gradient(
+						to right,
+						${variables.colors.primaryColor},
+						${variables.colors.linearColor}
+					);
+					background: linear-gradient(
+						to right,
+						${variables.colors.primaryColor},
+						${variables.colors.linearColor}
+					);
+					color: ${variables.colors.white};
 					position: relative;
 					&__counter {
 						position: absolute;
@@ -78,15 +88,23 @@ export const SearchPage = styled.section`
 							display: flex;
 							align-items: center;
 							padding: 5px;
-							background: #e0e0e0;
+							background: ${variables.colors.borderGray};
 							&:nth-child(2n + 1) {
-								background: #eeeeee;
+								background: ${variables.colors.backgroundGray};
 							}
 							&:hover {
-								background: #3a0d51;
-								background: -webkit-linear-gradient(to right, #3a0d51, #621d3d);
-								background: linear-gradient(to right, #3a0d51, #621d3d);
-								color: #fff;
+								background: ${variables.colors.primaryColor};
+								background: -webkit-linear-gradient(
+									to right,
+									${variables.colors.primaryColor},
+									${variables.colors.linearColor}
+								);
+								background: linear-gradient(
+									to right,
+									${variables.colors.primaryColor},
+									${variables.colors.linearColor}
+								);
+								color: ${variables.colors.white};
 							}
 							&__cnpj {
 								width: 20%;
@@ -125,10 +143,18 @@ export const SearchPage = styled.section`
 					border: none;
 					border-bottom: 0;
 					border-radius: 6px 6px 0 0;
-					background: #3a0d51;
-					background: -webkit-linear-gradient(to left, #3a0d51, #621d3d);
-					background: linear-gradient(to left, #3a0d51, #621d3d);
-					color: #fff;
+					background: ${variables.colors.primaryColor};
+					background: -webkit-linear-gradient(
+						to left,
+						${variables.colors.primaryColor},
+						${variables.colors.linearColor}
+					);
+					background: linear-gradient(
+						to left,
+						${variables.colors.primaryColor},
+						${variables.colors.linearColor}
+					);
+					color: ${variables.colors.white};
 					position: relative;
 					&__counter {
 						position: absolute;
@@ -165,15 +191,23 @@ export const SearchPage = styled.section`
 							display: flex;
 							align-items: center;
 							padding: 5px;
-							background: #e0e0e0;
+							background: ${variables.colors.borderGray};
 							&:nth-child(2n + 1) {
-								background: #eeeeee;
+								background: ${variables.colors.borderGray};
 							}
 							&:hover {
-								background: #3a0d51;
-								background: -webkit-linear-gradient(to left, #3a0d51, #621d3d);
-								background: linear-gradient(to left, #3a0d51, #621d3d);
-								color: #fff;
+								background: ${variables.colors.primaryColor};
+								background: -webkit-linear-gradient(
+									to left,
+									${variables.colors.primaryColor},
+									${variables.colors.linearColor}
+								);
+								background: linear-gradient(
+									to left,
+									${variables.colors.primaryColor},
+									${variables.colors.linearColor}
+								);
+								color: ${variables.colors.white};
 							}
 							&__name {
 								width: 60%;
@@ -194,7 +228,7 @@ export const SearchPage = styled.section`
 		&-style {
 			height: 70vh;
 			width: 100%;
-			background: #fafafa;
+			background: ${variables.colors.backgroundWhite};
 		}
 	}
 `;
