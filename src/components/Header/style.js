@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import variables from "../Style/variables";
+import variables from "../../util/Style/variables";
 
 export const HeaderPage = styled.section`
 	.header-container {

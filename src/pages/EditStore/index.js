@@ -5,7 +5,7 @@ import * as yup from "yup";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Header from "../../util/Header/header";
+import Header from "../../components/Header/header";
 import { RegisterButton } from "../../util/Style/global";
 import { EditPage } from "./style";
 import api from "../../services/requestAPI";

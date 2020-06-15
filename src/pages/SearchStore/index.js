@@ -3,7 +3,7 @@ import { FiSearch } from "react-icons/fi";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import Header from "../../util/Header/header";
+import Header from "../../components/Header/header";
 import { SearchPage } from "./style";
 import { InputSearch, ButtonSearch } from "../../util/Style/global";
 import api from "../../services/requestAPI";
@@ -136,10 +136,10 @@ export default function SearchStore() {
 								{filteredStore ? (
 									<StoreItem store={filteredStore} />
 								) : (
-									stores.map((store, index) => (
-										<StoreItem key={index} store={store} />
-									))
-								)}
+										stores.map((store, index) => (
+											<StoreItem key={index} store={store} />
+										))
+									)}
 							</ul>
 						</section>
 					</section>
